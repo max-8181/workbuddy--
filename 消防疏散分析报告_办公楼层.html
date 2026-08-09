@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>消防疏散分析报告 — 办公楼层</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Microsoft YaHei',sans-serif;background:#0f1923;color:#c9d1d9;line-height:1.8}
+.container{max-width:1200px;margin:0 auto;padding:40px 20px}
+.header{text-align:center;padding:60px 0;border-bottom:2px solid #1f6feb}
+.header h1{font-size:2.2em;color:#58a6ff;margin-bottom:10px}
+.header .subtitle{color:#8b949e;font-size:1.1em}
+.header .meta{color:#6e7681;margin-top:15px;font-size:0.9em}
+.section{margin:40px 0;padding:30px;background:#161b22;border:1px solid #30363d;border-radius:12px}
+.section h2{color:#58a6ff;font-size:1.4em;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #30363d}
+.section h3{color:#f0f6fc;font-size:1.1em;margin:20px 0 10px}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th,td{padding:12px 16px;text-align:left;border:1px solid #30363d}
+th{background:#21262d;color:#58a6ff;font-weight:bold;font-size:0.95em}
+td{font-size:0.95em}
+td.value{font-family:'Consolas',monospace;color:#7ee787}
+.pass{color:#7ee787;font-weight:bold}
+.warn{color:#d29922;font-weight:bold}
+.fail{color:#f85149;font-weight:bold}
+.note{color:#8b949e}
+.highlight{background:#1c2a3a;border-left:4px solid #58a6ff;padding:20px;margin:20px 0;border-radius:0 8px 8px 0}
+.highlight p{margin:5px 0}
+.code-ref{color:#58a6ff;font-size:0.9em;font-family:'Consolas',monospace}
+.escape-map{text-align:center;margin:20px 0}
+.escape-map img{max-width:100%;border-radius:8px;border:1px solid #30363d}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+.footer{text-align:center;color:#484f58;padding:20px;margin-top:40px;font-size:0.85em}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.85em;margin:0 5px}
+.badge-pass{background:#1a3329;color:#7ee787;border:1px solid #238636}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>消防安全疏散分析报告</h1>
+  <div class="subtitle">办公楼层 — 标准逃生布置图</div>
+  <div class="meta">
+    <span class="badge badge-pass">合规</span>
+    建筑面积 274.6㎡ | 4层及以上 | 耐火等级一、二级
+  </div>
+</div>
+
+<!-- 1. 基本概况 -->
+<div class="section">
+<h2>一、项目概况</h2>
+<table>
+  <tr><th style="width:30%">项目</th><th>内容</th></tr>
+  <tr><td>建筑类型</td><td>办公建筑</td></tr>
+  <tr><td>所在楼层</td><td>4层及以上</td></tr>
+  <tr><td>建筑面积</td><td class="value">274.6 ㎡</td></tr>
+  <tr><td>建筑耐火等级</td><td>一、二级</td></tr>
+  <tr><td>自动喷水灭火系统</td><td>全部设置（疏散距离+25%）</td></tr>
+  <tr><td>分析依据</td><td>GB 50016-2014(2018版) | GB 55037-2022</td></tr>
+  <tr><td>报告日期</td><td>2026-08-07</td></tr>
+</table>
+</div>
+
+<!-- 2. 疏散人数 -->
+<div class="section">
+<h2>二、疏散人数计算</h2>
+<p>依据 <span class="code-ref">JGJ/T 67-2019 办公建筑设计标准</span> 及 <span class="code-ref">GB 50016-2014(2018版)</span>，办公建筑人员密度按使用面积每人4~8㎡计算，本次分析取不利情况：</p>
+<table>
+  <tr><th style="width:40%">计算参数</th><th>数值</th></tr>
+  <tr><td>建筑面积</td><td class="value">274.6 ㎡</td></tr>
+  <tr><td>人员密度（不利取值）</td><td class="value">0.2 人/㎡（5㎡/人）</td></tr>
+  <tr><td style="color:#7ee787;font-weight:bold">疏散人数</td><td class="value" style="font-size:1.2em">55 人</td></tr>
+</table>
+</div>
+
+<!-- 3. 疏散宽度 -->
+<div class="section">
+<h2>三、疏散宽度计算</h2>
+<p>依据 <span class="code-ref">GB 50016-2014(2018版) 表5.5.20-1</span>，4层及以上其他民用建筑百人疏散宽度指标为 <strong class="value">1.00m/百人</strong>。</p>
+<table>
+  <tr><th style="width:40%">计算参数</th><th>数值</th></tr>
+  <tr><td>疏散人数</td><td class="value">55 人</td></tr>
+  <tr><td>百人宽度指标（4F+）</td><td class="value">1.00 m/百人</td></tr>
+  <tr><td style="color:#7ee787;font-weight:bold">所需疏散总宽度</td><td class="value" style="font-size:1.2em">0.55 m</td></tr>
+  <tr><td>疏散门最小净宽（单门）</td><td class="value">0.90 m</td></tr>
+  <tr><td>走道最小净宽（高层公建）</td><td class="value">1.10 m</td></tr>
+</table>
+
+<div class="highlight">
+  <p><strong>结论：</strong>所需总疏散宽度 0.55m，2个安全出口各净宽≥0.90m，总可用宽度≥1.80m<span class="pass"> ✓ 满足要求</span></p>
+</div>
+</div>
+
+<!-- 4. 疏散距离 -->
+<div class="section">
+<h2>四、疏散距离校验</h2>
+<p>依据 <span class="code-ref">GB 50016-2014(2018版) 表5.5.17</span>，其他民用建筑一、二级耐火等级：</p>
+<ul style="margin:10px 0 10px 30px">
+  <li>位于两个安全出口之间的房间：疏散距离限值 <span class="value">40m</span></li>
+  <li>袋形走道两侧或尽端：疏散距离限值 <span class="value">22m</span></li>
+  <li>全部设置自动喷水灭火系统：<span class="pass">+25%</span></li>
+</ul>
+<table>
+  <tr><th style="width:40%">校验项</th><th>限值</th><th>实际</th><th>判定</th></tr>
+  <tr>
+    <td>两出口间（含喷淋+25%）</td>
+    <td class="value">50.0m</td>
+    <td>约2.6m</td>
+    <td class="pass">✓ 合规</td>
+  </tr>
+  <tr>
+    <td>袋形走道（含喷淋+25%）</td>
+    <td class="value">27.5m</td>
+    <td>约2.6m</td>
+    <td class="pass">✓ 合规</td>
+  </tr>
+</table>
+<p class="note">* 实际疏散距离为步行距离，考虑绕行后取预估最大值。</p>
+</div>
+
+<!-- 5. 安全出口 -->
+<div class="section">
+<h2>五、安全出口校验</h2>
+<p>依据 <span class="code-ref">GB 50016-2014(2018版) 5.5.8</span> 及 <span class="code-ref">GB 55037-2022 7.1.2</span>：</p>
+<table>
+  <tr><th style="width:40%">校验项</th><th>要求</th><th>实际</th><th>判定</th></tr>
+  <tr><td>安全出口数量</td><td>≥ 2 个</td><td class="value">2 个</td><td class="pass">✓ 合规</td></tr>
+  <tr><td>出口间距</td><td>≥ 5.0m</td><td class="value">约15.3m</td><td class="pass">✓ 合规</td></tr>
+  <tr><td>疏散门宽度</td><td>≥ 0.90m</td><td class="value">1.20m</td><td class="pass">✓ 合规</td></tr>
+</table>
+<p class="note">注：建筑面积 274.6㎡ > 200㎡ 且人数 55人 > 15人，必须设置不少于2个安全出口。</p>
+</div>
+
+<!-- 6. 合规检查汇总 -->
+<div class="section">
+<h2>六、合规检查汇总</h2>
+<table>
+  <tr><th style="width:5%">#</th><th style="width:35%">检查项目</th><th style="width:20%">判定</th><th>备注</th></tr>
+  <tr><td>1</td><td>安全出口数量</td><td class="pass">✓ 合规</td><td class="code-ref">2个 ≥ 2个 (GB 50016 5.5.8)</td></tr>
+  <tr><td>2</td><td>疏散总宽度</td><td class="pass">✓ 合规</td><td class="code-ref">需要0.55m, 2个出口各≥0.90m满足 (GB 50016 5.5.18)</td></tr>
+  <tr><td>3</td><td>疏散距离(两出口间)</td><td class="pass">✓ 合规</td><td class="code-ref">限值50.0m, 最远约2.6m (GB 50016 5.5.17)</td></tr>
+  <tr><td>4</td><td>安全出口间距</td><td class="pass">✓ 合规</td><td class="code-ref">间距约15.3m ≥ 5m (GB 55037 7.1.2)</td></tr>
+  <tr><td>5</td><td>走道宽度</td><td class="pass">✓ 合规</td><td class="code-ref">走道≥1.10m (高层公共建筑), GB 50016 5.5.18</td></tr>
+  <tr><td>6</td><td>疏散门开启方向</td><td class="note">📋 提醒</td><td class="code-ref">疏散门应向疏散方向开启 (GB 55037 7.1.5)</td></tr>
+
+</table>
+</div>
+
+<!-- 7. 疏散布置图说明 -->
+<div class="section">
+<h2>七、标准逃生布置图说明</h2>
+<div class="escape-map">
+  <p style="color:#8b949e;margin-bottom:15px">逃生布置图已生成，包含以下标注要素：</p>
+</div>
+<table>
+  <tr><th>标注要素</th><th>图示</th><th>说明</th></tr>
+  <tr><td>安全出口</td><td style="color:#00b894">● 绿色圆圈 + 方向箭头</td><td>标识两个疏散楼梯出口位置</td></tr>
+  <tr><td>疏散路线</td><td style="color:#fdcb6e">→ 虚线箭头</td><td>从各房间指向最近安全出口</td></tr>
+  <tr><td>灭火器</td><td style="color:#d63031">■ 红色方块</td><td>灭火器布置点位（符合间距要求）</td></tr>
+  <tr><td>消火栓</td><td style="color:#0984e3">○ 蓝色圆圈</td><td>室内消火栓位置</td></tr>
+  <tr><td>手动报警按钮</td><td style="color:#e17055">□ 橙色方块</td><td>火灾报警手动按钮</td></tr>
+</table>
+
+<div class="highlight">
+  <p><strong>⚠️ 重要提示：</strong></p>
+  <p>1. 所有疏散门应向疏散方向开启（GB 55037-2022 7.1.5）</p>
+  <p>2. 疏散走道和出口处不应设置门槛、台阶等障碍物</p>
+  <p>3. 应在明显位置设置疏散照明和疏散指示标志</p>
+  <p>4. 灭火器配置应符合 GB 50140-2005 的规定（每具≥2A，保护距离≤15m）</p>
+  <p>5. 本报告基于图纸提取数据生成，实际施工应以规范原文为准</p>
+</div>
+</div>
+
+<!-- 8. 引用规范 -->
+<div class="section">
+<h2>八、引用规范</h2>
+<table>
+  <tr><th style="width:30%">规范编号</th><th>规范名称</th><th>引用条文</th></tr>
+  <tr><td>GB 50016-2014(2018版)</td><td>建筑设计防火规范</td><td>5.5.8, 5.5.15-5.5.21</td></tr>
+  <tr><td>GB 55037-2022</td><td>建筑防火通用规范</td><td>7.1.2, 7.1.5, 7.1.8</td></tr>
+  <tr><td>JGJ/T 67-2019</td><td>办公建筑设计标准</td><td>人员密度参考</td></tr>
+  <tr><td>GB 50140-2005</td><td>建筑灭火器配置设计规范</td><td>灭火器布置</td></tr>
+  <tr><td>GB 51309-2018</td><td>消防应急照明和疏散指示系统技术标准</td><td>疏散指示</td></tr>
+</table>
+</div>
+
+<div class="footer">
+  <p>本报告由设计规范助手自动生成 | 仅供设计参考</p>
+  <p>正式设计请以规范原文为准 | 报告日期: 2026-08-07</p>
+</div>
+</div>
+</body>
+</html>

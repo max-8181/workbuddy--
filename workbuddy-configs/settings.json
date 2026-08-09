@@ -1,0 +1,31 @@
+{
+  "sandbox": {
+    "extraAllowWrite": [
+      "~/.tencent-cloudq",
+      "~/.andonq",
+      "~/.xiaoe-cloud",
+      "~/.config/wecom/",
+      "~/.lark-cli",
+      "~/.lark-channel/",
+      "~/.dws",
+      "/tmp/dws-cache",
+      "~/.tmeet",
+      "~/Library/Application Support/tmeet"
+    ]
+  },
+  "enabledPlugins": {
+    "weixinpay@workbuddy-builtin": true,
+    "tencent-docs-plugin@workbuddy-builtin": true,
+    "tencent-pptx@workbuddy-builtin": true
+  },
+  "claw": {
+    "channels": {
+      "wechatmp": {
+        "enabled": true,
+        "connectionMode": "webhook"
+      }
+    },
+    "users": {},
+    "legacyOwnerUid": "c7bcc36f-3b3f-4a93-ba38-5a57a6742d11"
+  }
+}

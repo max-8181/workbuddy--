@@ -1,0 +1,14 @@
+{
+  "bounds": {
+    "min_x": 0,
+    "max_x": 10000,
+    "min_y": 0,
+    "max_y": 10000
+  },
+  "wall_lines": [],
+  "glass_lines": [],
+  "window_lines": [],
+  "texts": [],
+  "arcs": [],
+  "circles": []
+}

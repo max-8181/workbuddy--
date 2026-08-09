@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>室内电源插座配置规范检索报告</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.8; color: #2C2C2A; background: #F9F8F6; padding: 24px; }
+  .container { max-width: 860px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  h1 { font-size: 22px; font-weight: 600; color: #26215C; margin-bottom: 8px; }
+  .subtitle { font-size: 14px; color: #888780; margin-bottom: 32px; }
+  h2 { font-size: 17px; font-weight: 600; color: #3C3489; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1.5px solid #EEEDFE; }
+  h3 { font-size: 15px; font-weight: 500; color: #444441; margin: 20px 0 10px; }
+  .clause-card { background: #F9F8F6; border: 1px solid #E8E6DF; border-radius: 8px; padding: 20px 24px; margin: 12px 0; }
+  .clause-card.highlight { border-left: 3px solid #534AB7; background: #F4F3FE; }
+  .clause-card.fire { border-left: 3px solid #D85A30; background: #FDF6F3; }
+  .clause-num { display: inline-block; background: #534AB7; color: #fff; font-size: 12px; font-weight: 500; padding: 2px 10px; border-radius: 4px; margin-right: 8px; }
+  .clause-num.fire { background: #D85A30; }
+  .clause-num.office { background: #0F6E56; }
+  .clause-title { font-size: 14px; font-weight: 500; color: #444441; margin-bottom: 6px; }
+  .clause-text { font-size: 14px; color: #5F5E5A; line-height: 1.8; }
+  .clause-text strong { color: #2C2C2A; font-weight: 500; }
+  .source { font-size: 12px; color: #888780; margin-top: 8px; font-style: italic; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th { background: #534AB7; color: #fff; font-weight: 500; padding: 10px 14px; text-align: left; font-size: 13px; }
+  td { padding: 10px 14px; border-bottom: 1px solid #E8E6DF; color: #5F5E5A; }
+  td:first-child { font-weight: 500; color: #2C2C2A; }
+  tr:nth-child(even) td { background: #FAFAF8; }
+  .badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500; }
+  .badge-mandatory { background: #FCEBEB; color: #A32D2D; }
+  .badge-current { background: #E1F5EE; color: #0F6E56; }
+  .summary-box { background: linear-gradient(135deg, #F4F3FE 0%, #E1F5EE 100%); border-radius: 10px; padding: 20px 28px; margin: 20px 0; }
+  .summary-box h3 { color: #3C3489; margin-top: 0; }
+  .summary-box ul { list-style: none; padding: 0; }
+  .summary-box li { font-size: 14px; color: #444441; padding: 6px 0; padding-left: 20px; position: relative; }
+  .summary-box li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: #534AB7; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #E8E6DF; font-size: 12px; color: #888780; text-align: center; }
+  .note { background: #FAEEDA; border: 1px solid #FAC775; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 13px; color: #633806; }
+  .original-shot { margin: 16px 0; border: 1px solid #E8E6DF; border-radius: 8px; padding: 16px; background: #fff; text-align: center; }
+  .original-shot img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .shot-caption { font-size: 12px; color: #888780; margin-top: 10px; font-style: italic; }
+  .shot-label { display: inline-block; background: #3C3489; color: #fff; font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 4px; margin-right: 8px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>室内电源插座配置规范检索报告</h1>
+  <p class="subtitle">检索时间：2026-08-06 | 数据来源：IMA知识库「设计工程规范库」(ID: 7415660309141938)</p>
+
+  <div class="summary-box">
+    <h3>核心结论</h3>
+    <ul>
+      <li><strong>住宅建筑：</strong>依据 GB 50096-2011 第8.7.6条，卧室≥2组、起居室≥3组、厨房≥2组（防溅水型）电源插座</li>
+      <li><strong>办公建筑：</strong>依据 JGJ/T 67-2019 第7.3.4条，每人不少于1个单相三孔+1个单相二孔插座两组，照明与插座回路分路设计</li>
+      <li><strong>消防补充：</strong>GB 50222-2017 要求开关插座不应直接安装在低于B1级装修材料上</li>
+      <li><strong>用电负荷：</strong>住宅每套≥2.5kW，进户线截面≥10mm²，分支回路≥2.5mm²</li>
+    </ul>
+  </div>
+
+  <h2>一、住宅建筑电源插座配置要求</h2>
+
+  <div class="clause-card highlight">
+    <div class="clause-title">
+      <span class="shot-label">规范原文截图</span>
+      表 12.3.5 电源插座的最少设置数量
+    </div>
+    <div class="original-shot">
+      <img src="电源插座最少设置数量_原文截图.png" alt="表 12.3.5 电源插座的最少设置数量">
+      <p class="shot-caption">注：该表来自用户提供的规范原文截图（表号 12.3.5），直观给出各功能空间电源插座的最低配置数量。规范编号待进一步确认，可能为某本住宅/全装修设计标准或地方图审要点。</p>
+    </div>
+  </div>
+
+  <div class="clause-card highlight">
+    <div class="clause-title">
+      <span class="clause-num">GB 50096-2011 第8.7.6条</span>
+      <span class="badge badge-current">现行</span>
+    </div>
+    <p class="clause-text">
+      <strong>电源插座数量：</strong>
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>房间部位</th>
+          <th>电源插座最少组数</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>卧室</td>
+          <td>≥ 2 组</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>起居室（厅）</td>
+          <td>≥ 3 组</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>厨房</td>
+          <td>≥ 2 组</td>
+          <td>应采用防溅水型插座</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="source">来源：《住宅设计规范》GB 50096-2011 第8章 建筑设备 第8.7节 电气 | 实施日期：2012-08-01</p>
+  </div>
+
+  <h3>配套电气条文（同一规范）</h3>
+
+  <div class="clause-card">
+    <div class="clause-title">
+      <span class="clause-num">第8.7.1条</span> 用电负荷
+    </div>
+    <p class="clause-text">每套住宅用电负荷不应小于 <strong>2.5kW</strong>。</p>
+  </div>
+
+  <div class="clause-card">
+    <div class="clause-title">
+      <span class="clause-num">第8.7.2条</span> 供电系统
+    </div>
+    <p class="clause-text">
+      住宅供电系统应采用TT、TN-C-S或TN-S接地方式，并进行等电位连接。进户线截面不应小于<strong>10mm²</strong>，分支回路截面不应小于<strong>2.5mm²</strong>。
+    </p>
+  </div>
+
+  <div class="clause-card">
+    <div class="clause-title">
+      <span class="clause-num">GB 50368-2005 第8.5条</span> 电气（住宅建筑规范）
+    </div>
+    <p class="clause-text">
+      住宅建筑电气设计应满足用电负荷要求，电气线路的敷设应安全可靠。电气设备应采用安全型产品，配电系统应合理分配负荷。
+    </p>
+    <p class="source">来源：《住宅建筑规范》GB 50368-2005 第8章 设备与设施 | 实施日期：2006-03-01</p>
+  </div>
+
+  <div class="clause-card">
+    <div class="clause-title">
+      <span class="clause-num">JGJ 367-2015 第10.3.3条</span> 住宅装饰装修电气
+    </div>
+    <p class="clause-text">
+      住宅各功能空间应设置能够满足使用需求的电源插座和开关，并应符合下列规定：<br>
+      1 电源插座的数量<strong>不应少于现行国家标准《住宅设计规范》GB 50096 的规定</strong>；<br>
+      2 当电源插座底边距地面1.80m及以下时，应选用带安全门的产品；<br>
+      3 厨房宜预留增添设施、设备的电源插座位置，电源插座距水槽边缘的水平距离宜大于600mm；<br>
+      4 洗衣机、电热水器、空调和厨房设备宜选用开关型插座；<br>
+      5 可能被溅水的电源插座应选用防护等级不低于IP54的防溅水型插座；<br>
+      6 除照明、壁挂空调电源插座外，所有电源插座配电回路应设置剩余电流动作保护装置。
+    </p>
+    <p class="source">来源：《住宅室内装饰装修设计规范》JGJ 367-2015 第10.3节 电气 | 实施日期：2016-03-01</p>
+  </div>
+
+  <h2>二、办公建筑电源插座配置要求</h2>
+
+  <div class="clause-card highlight">
+    <div class="clause-title">
+      <span class="clause-num office">JGJ/T 67-2019 第7.3.4条</span>
+      <span class="badge badge-current">现行</span>
+    </div>
+    <p class="clause-text">
+      <strong>照明回路和插座回路应分路设计。</strong>按人数和桌椅布置的办公室内插座数量应满足<strong>每人不少于一个单相三孔和一个单相二孔的插座两组</strong>。
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>要求项</th>
+          <th>具体内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>回路设计</td>
+          <td>照明回路与插座回路必须分路设计</td>
+        </tr>
+        <tr>
+          <td>插座数量（每人）</td>
+          <td>≥ 1个单相三孔插座 + 1个单相二孔插座（共两组）</td>
+        </tr>
+        <tr>
+          <td>布置依据</td>
+          <td>按人数和桌椅布置确定</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="source">来源：《办公建筑设计标准》JGJ/T 67-2019 第7章 建筑设备 第7.3节 建筑电气 | 实施日期：2020-03-01</p>
+  </div>
+
+  <h3>配套条文（同一标准）</h3>
+
+  <div class="clause-card">
+    <div class="clause-title">
+      <span class="clause-num office">第7.3.5条</span> 照明标准
+    </div>
+    <p class="clause-text">照明设计应符合 GB 50034 规定，应采用高效节能光源。</p>
+  </div>
+
+  <div class="clause-card">
+    <div class="clause-title">
+      <span class="clause-num office">第7.3.10条</span> 电动汽车充电
+    </div>
+    <p class="clause-text">汽车停放场地应设置或预留电动汽车充电装置配电设施。</p>
+  </div>
+
+  <h2>三、消防及装修相关补充要求</h2>
+
+  <div class="clause-card fire">
+    <div class="clause-title">
+      <span class="clause-num fire">GB 50222-2017</span>
+      <span class="badge badge-mandatory">强制性条文</span>
+    </div>
+    <p class="clause-text">
+      建筑内部装修设计中，<strong>开关、插座等不应直接安装在低于B1级的装修材料上</strong>。当必须安装在B1级以下材料上时，应采取隔热、散热等防火保护措施。
+    </p>
+    <p class="source">来源：《建筑内部装修设计防火规范》GB 50222-2017 | 实施日期：2018-04-01</p>
+  </div>
+
+  <div class="clause-card fire">
+    <div class="clause-title">
+      <span class="clause-num fire">GB 55037-2022 第10章</span>
+      <span class="badge badge-mandatory">全文强制性</span>
+    </div>
+    <p class="clause-text">
+      建筑防火通用规范对电气部分要求：<strong>用电设备应采用专用的供电回路</strong>，消防用电设备应采用专用的供电回路，且不得接入其他非消防用电设备。
+    </p>
+    <p class="source">来源：《建筑防火通用规范》GB 55037-2022 第10章 电气 | 实施日期：2023-06-01</p>
+  </div>
+
+  <h2>四、规范条文原文引用</h2>
+
+  <h3>GB 50096-2011 住宅设计规范 — 第8.7节 电气</h3>
+  <div class="clause-card">
+    <p class="clause-text" style="font-family: 'Courier New', monospace; font-size: 13px; white-space: pre-wrap;">
+8.7.1 每套住宅的用电负荷不应小于2.5kW。
+
+8.7.2 住宅供电系统的设计，应符合下列规定：
+  1 应采用TT、TN-C-S或TN-S接地方式，并进行等电位连接；
+  2 电气线路应采用符合安全和防火要求的敷设方式配线；
+  3 住宅套内的电气管线应采用穿管暗敷设方式配线；
+  4 进户线截面不应小于10mm²，分支回路截面不应小于2.5mm²。
+
+8.7.6 电源插座的数量不应少于表8.7.6的规定：
+  卧室       ≥ 2组
+  起居室(厅)  ≥ 3组
+  厨房       ≥ 2组（防溅水型）
+  卫生间     ≥ 1组（防溅水型）
+  布置洗衣机、冰箱、排油烟机、排风机及空调器等处
+    </p>
+    <p class="source">注：条文摘要来源于知识库条文级摘要笔记，正式设计应以规范原文为准</p>
+  </div>
+
+  <h3>JGJ/T 67-2019 办公建筑设计标准 — 第7.3节 建筑电气</h3>
+  <div class="clause-card">
+    <p class="clause-text" style="font-family: 'Courier New', monospace; font-size: 13px; white-space: pre-wrap;">
+7.3.4 照明回路和插座回路应分路设计。按人数和桌椅布置
+      的办公室内插座数量应满足每人不少于一个单相三孔和
+      一个单相二孔的插座两组。
+
+7.3.5 照明设计应符合现行国家标准《建筑照明设计标准》
+      GB 50034的有关规定，并应采用高效节能光源。
+
+7.3.10 汽车停放场地应设置或预留电动汽车充电装置配电
+       设施。
+    </p>
+    <p class="source">注：条文摘要来源于知识库条文级摘要笔记，正式设计应以规范原文为准</p>
+  </div>
+
+  <div class="note">
+    <strong>设计提示：</strong>上述为规范规定的最低要求，实际设计中应根据用电设备数量和使用需求适当增加插座数量。厨房和卫生间应选用防溅水型插座，空调、洗衣机、冰箱等大功率电器应设独立回路。
+  </div>
+
+  <h2>五、涉及规范索引</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>规范编号</th>
+        <th>规范名称</th>
+        <th>关键条文</th>
+        <th>状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GB 50096-2011</td>
+        <td>住宅设计规范</td>
+        <td>第8.7.1条、第8.7.2条、第8.7.6条</td>
+        <td>现行</td>
+      </tr>
+      <tr>
+        <td>GB 50368-2005</td>
+        <td>住宅建筑规范</td>
+        <td>第8.5条 电气</td>
+        <td>现行</td>
+      </tr>
+      <tr>
+        <td>JGJ 367-2015</td>
+        <td>住宅室内装饰装修设计规范</td>
+        <td>第10.3.3条 电源插座和开关</td>
+        <td>现行</td>
+      </tr>
+      <tr>
+        <td>JGJ/T 67-2019</td>
+        <td>办公建筑设计标准</td>
+        <td>第7.3.4条、第7.3.5条、第7.3.10条</td>
+        <td>现行</td>
+      </tr>
+      <tr>
+        <td>GB 50222-2017</td>
+        <td>建筑内部装修设计防火规范</td>
+        <td>插座安装材料防火要求</td>
+        <td>现行</td>
+      </tr>
+      <tr>
+        <td>GB 55037-2022</td>
+        <td>建筑防火通用规范</td>
+        <td>第10章 电气（全文强制性）</td>
+        <td>现行</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    本报告由 IMA 知识库规范检索系统生成 | 检索范围：19部核心建筑规范 | 知识库ID: 7415660309141938<br>
+    报告仅供参考，正式设计应以规范原文为准
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "title": "消防疏散计算参数数据库",
+    "source": "GB 50016-2014 (2018版) 建筑设计防火规范 第5.5章 + GB 55037-2022 建筑防火通用规范",
+    "created": "2026-08-07",
+    "note": "强制性条文以GB 55037-2022为准，非强制性计算参数以GB 50016-2014(2018版)为准。部分参数需对照PDF原文确认。"
+  },
+
+  "occupant_density": {
+    "description": "人员密度指标，用于计算疏散人数 = 面积 x 密度",
+    "shop_retail": {
+      "source": "GB 50016 表5.5.20-2 商店营业厅人员密度",
+      "unit": "人/㎡",
+      "levels": {
+        "underground_2": 0.560,
+        "underground_1": 0.600,
+        "ground_1_2": { "min": 0.43, "max": 0.60 },
+        "ground_3": { "min": 0.39, "max": 0.54 },
+        "ground_4_plus": { "min": 0.30, "max": 0.42 }
+      },
+      "note": "取值应根据建筑实际情况在区间内选取；建材/家具/灯饰等商店取较小值"
+    },
+    "office": {
+      "source": "JGJ/T 67-2019 办公建筑设计标准（参考）",
+      "note": "GB 50016未直接规定办公建筑人员密度，按实际使用人数计算或参考JGJ/T 67",
+      "usable_area_per_person_m2": { "min": 4, "max": 8 },
+      "density_per_m2": { "min": 0.125, "max": 0.25 },
+      "typical_value": 0.20
+    },
+    "exhibition": {
+      "source": "GB 50016 表5.5.20-2（展览厅参照商店营业厅）",
+      "note": "展览厅人员密度参照商店营业厅取值"
+    },
+    "other_note": "学校按座位数/班额；医院按床位数+陪护(每床1陪护)；体育馆/影剧院按座位数；餐厅按1.0-1.2人/㎡"
+  },
+
+  "exit_width_per_100": {
+    "description": "百人疏散宽度指标(m/百人)，所需疏散总宽度 = 疏散人数 / 100 x 百人指标",
+    "source": "GB 50016 表5.5.20-1",
+    "factory": {
+      "floor_1_2": 0.60,
+      "floor_3": 0.80,
+      "floor_4_plus": 1.00
+    },
+    "civil_other": {
+      "description": "除厂房和商店营业厅外的民用建筑（含办公、学校、医院等）",
+      "floor_1_2": 0.65,
+      "floor_3": 0.75,
+      "floor_4_plus": 1.00
+    },
+    "shop_exhibition": {
+      "description": "商店营业厅、展览厅",
+      "floor_1_2": 0.65,
+      "floor_3": 0.75,
+      "floor_4_plus": 1.00,
+      "underground_1": 1.00,
+      "underground_2": 1.00
+    }
+  },
+
+  "travel_distance": {
+    "description": "房间疏散门至最近安全出口的直线距离限值(m)",
+    "source": "GB 50016 表5.5.17",
+    "sprinkler_bonus": "+25%",
+    "sprinkler_note": "建筑内全部设自动喷水灭火系统时，疏散距离可增加25%",
+    "buildings": {
+      "nursery_kindergarten_elderly": {
+        "name": "托儿所、幼儿园、老年人照料设施",
+        "class_1_2": { "between_exits": 25, "dead_end": 20 },
+        "class_3": { "between_exits": 20, "dead_end": 15 },
+        "class_4": { "between_exits": 15, "dead_end": 10 }
+      },
+      "entertainment": {
+        "name": "歌舞娱乐放映游艺场所",
+        "class_1_2": { "between_exits": 25, "dead_end": 9 },
+        "class_3": { "between_exits": 20, "dead_end": 9 }
+      },
+      "hospital": {
+        "name": "医院、疗养院",
+        "class_1_2": { "between_exits": 35, "dead_end": 20 },
+        "class_3": { "between_exits": 30, "dead_end": 15 },
+        "class_4": { "between_exits": 25, "dead_end": 10 }
+      },
+      "school": {
+        "name": "学校",
+        "class_1_2": { "between_exits": 35, "dead_end": 22 },
+        "class_3": { "between_exits": 30, "dead_end": 20 },
+        "class_4": { "between_exits": 25, "dead_end": 10 }
+      },
+      "other_civil": {
+        "name": "其他民用建筑（含办公建筑）",
+        "class_1_2": { "between_exits": 40, "dead_end": 22 },
+        "class_3": { "between_exits": 35, "dead_end": 20 },
+        "class_4": { "between_exits": 25, "dead_end": 15 }
+      }
+    }
+  },
+
+  "min_exit_count": {
+    "description": "安全出口/疏散门最低数量要求",
+    "source": "GB 50016 5.5.15, 5.5.16; GB 55037 7.1.2",
+    "fire_zone_min": 2,
+    "fire_zone_note": "每个防火分区安全出口数量不少于2个",
+    "single_exit_conditions": {
+      "note": "符合以下条件之一时可设1个安全出口",
+      "conditions": [
+        "单层或多层首层，一二级耐火，建筑面积<=200㎡",
+        "除托儿所/幼儿园/老年人照料设施外，建筑面积<=50㎡且人数<=15人",
+        "二、三层建筑(一二级耐火)，每层建筑面积<=200㎡且二三层人数之和<=50人",
+        "住宅建筑每个单元每层安全出口数：高度<=27m时>=1个; 27m<高度<=54m时>=2个(或设1个+疏散楼梯通至屋顶)"
+      ]
+    },
+    "exit_spacing_min_m": 5,
+    "exit_spacing_note": "人员密集场所相邻两个疏散出口最近边缘之间水平距离>=5m (GB 55037 7.1.2)"
+  },
+
+  "min_width": {
+    "description": "疏散门/走道/楼梯最小净宽度(m)",
+    "source": "GB 50016 5.5.18, 5.5.19; GB 55037 7.1.x",
+    "evacuation_door_public": 0.90,
+    "evacuation_door_residential": 1.10,
+    "crowd_venue_door": 1.40,
+    "crowd_venue_note": "人员密集的公共场所、观众厅的疏散门净宽度>=1.40m",
+    "corridor_high_rise": 1.10,
+    "corridor_single_multi": 1.00,
+    "corridor_residential": 1.10,
+    "stair_high_rise_public": 1.20,
+    "stair_other": 1.10,
+    "stair_residential": 1.10,
+    "notes": [
+      "公共建筑疏散门最小净宽度0.90m (GB 50016 5.5.18)",
+      "住宅建筑安全出口/户门净宽度>=1.10m (GB 55038/GB 55037)",
+      "高层公共建筑疏散走道>=1.10m，单多层公共建筑>=1.00m",
+      "高层公共建筑疏散楼梯>=1.20m，其他建筑>=1.10m",
+      "观众厅/人员密集场所疏散门>=1.40m"
+    ]
+  },
+
+  "stairwell_type": {
+    "description": "疏散楼梯间形式要求",
+    "source": "GB 55037 7.1.8; GB 50016 5.5.27",
+    "residential": {
+      "height_le_27m": "敞开楼梯间",
+      "height_27_to_54m": "封闭楼梯间",
+      "height_gt_54m": "防烟楼梯间",
+      "note": "高度>33m的住宅建筑应采用防烟楼梯间 (GB 55037 7.1.8)"
+    },
+    "public": {
+      "height_le_24m": "封闭楼梯间（部分条件可敞开）",
+      "height_24_to_32m": "封闭楼梯间",
+      "class_1_high_rise_or_gt_32m": "防烟楼梯间",
+      "note": "一类高层公共建筑及>32m的二类高层公共建筑应采用防烟楼梯间"
+    },
+    "underground": {
+      "type": "防火隔墙分隔+乙级防火门",
+      "source": "GB 55037 7.1.10",
+      "note": "地下/半地下建筑疏散楼梯间应采用防火隔墙与首层其他部位分隔"
+    },
+    "smoke_proof_front_room": {
+      "public_min_area_m2": 6.0,
+      "residential_min_area_m2": 4.5,
+      "combined_public_min_area_m2": 10.0,
+      "combined_residential_min_area_m2": 6.0,
+      "min_short_side_m": 2.4,
+      "source": "GB 55037 7.1.8"
+    }
+  },
+
+  "fire_zone_max_area": {
+    "description": "防火分区最大允许建筑面积(㎡)",
+    "source": "GB 55037 4.3.15, 4.3.16",
+    "public_building": {
+      "high_rise": 1500,
+      "single_multi_class_1_2": 2500,
+      "class_3": 1200,
+      "class_4": 600,
+      "underground_equipment": 1000,
+      "underground_other": 500,
+      "sprinkler_bonus": "x2",
+      "sprinkler_note": "设自动灭火系统时可增加1.0倍(即面积x2)"
+    },
+    "shop_retail": {
+      "high_rise": 4000,
+      "single_ground": 10000,
+      "underground": 2000,
+      "note": "设自动灭火+报警+不燃/难燃装修时"
+    }
+  }
+}

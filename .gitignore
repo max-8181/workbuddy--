@@ -1,0 +1,28 @@
+# === 敏感文件（含密钥/凭证，绝对不能上传）===
+upload_creds.json
+*.key
+*.pem
+.env
+
+# === Python 缓存 ===
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# === 系统文件 ===
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# === 临时文件 ===
+*.tmp
+*.bak
+*.swp
+*~
+
+# === WorkBuddy 运行时文件（不需要同步）===
+.workbuddy/workspace-state.json
+.workbuddy/usage-log.json
+.workbuddy/last-launch.json

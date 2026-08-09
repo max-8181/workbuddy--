@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消防疏散分析报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "Segoe UI", sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
+        .container { max-width: 960px; margin: 20px auto; background: #fff; padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        h1 { font-size: 22px; color: #1a1a2e; border-bottom: 3px solid #e94560; padding-bottom: 12px; margin-bottom: 24px; }
+        h2 { font-size: 16px; color: #16213e; margin: 24px 0 12px; padding-left: 12px; border-left: 4px solid #e94560; }
+        .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+        .info-item { background: #f8f9fa; padding: 10px 16px; border-radius: 6px; }
+        .info-item .label { color: #6c757d; font-size: 13px; }
+        .info-item .value { font-weight: 600; font-size: 15px; color: #16213e; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        th { background: #16213e; color: #fff; padding: 10px 12px; text-align: left; font-size: 13px; }
+        td { padding: 10px 12px; border-bottom: 1px solid #dee2e6; font-size: 13px; }
+        tr:hover { background: #f8f9fa; }
+        .pass { color: #28a745; font-weight: 600; }
+        .fail { color: #dc3545; font-weight: 600; }
+        .badge-pass { background: #d4edda; color: #155724; padding: 2px 10px; border-radius: 12px; font-size: 12px; }
+        .badge-fail { background: #f8d7da; color: #721c24; padding: 2px 10px; border-radius: 12px; font-size: 12px; }
+        .detail { color: #6c757d; font-size: 12px; margin-top: 4px; }
+        .code-ref { color: #007bff; font-size: 12px; }
+        .summary-box { padding: 16px 20px; border-radius: 8px; margin: 16px 0; }
+        .summary-all-pass { background: #d4edda; border: 1px solid #c3e6cb; }
+        .summary-has-fail { background: #f8d7da; border: 1px solid #f5c6cb; }
+        .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 12px; }
+        .plan-image { max-width: 100%; border: 1px solid #dee2e6; border-radius: 8px; margin: 12px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>消防疏散分析报告</h1>
+
+    <h2>项目概况</h2>
+    <div class="info-grid">
+        <div class="info-item"><span class="label">建筑类型</span><br><span class="value">office</span></div>
+        <div class="info-item"><span class="label">耐火等级</span><br><span class="value">class_1_2</span></div>
+        <div class="info-item"><span class="label">楼层位置</span><br><span class="value">ground_2</span></div>
+        <div class="info-item"><span class="label">自动喷淋系统</span><br><span class="value">设</span></div>
+        <div class="info-item"><span class="label">疏散总人数</span><br><span class="value">40 人</span></div>
+        <div class="info-item"><span class="label">校验项目数</span><br><span class="value">8 项</span></div>
+    </div>
+
+    <h2>疏散计算结果</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>校验项</th>
+                <th>计算值</th>
+                <th>限值/要求</th>
+                <th>判定</th>
+                <th>条文依据</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>疏散人数<div class="detail">  办公室A: 35㎡ × 0.2人/㎡ = 7人
+  办公室B: 40㎡ × 0.2人/㎡ = 8人
+  会议室: 50㎡ × 0.5人/㎡ = 25人</div></td>
+                <td class="pass">40 人</td>
+                <td>0 人</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 50016 5.5.21 / 表5.5.20-2</td>
+            </tr>
+
+            <tr>
+                <td>疏散宽度校验<div class="detail">疏散人数40人 ÷ 100 × 百人指标0.65m/百人 = 所需宽度0.26m；实际出口总宽度2.70m（E1=1.2m, E2=1.5m）</div></td>
+                <td class="pass">2.7 m</td>
+                <td>0.26 m</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 50016 表5.5.20-1</td>
+            </tr>
+
+            <tr>
+                <td>疏散距离: 办公室A最远点 → E1<div class="detail">路径类型: 两出口之间；限值40m × 1.25(自动喷淋) = 50.0m</div></td>
+                <td class="pass">28 m</td>
+                <td>50.0 m</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 50016 表5.5.17</td>
+            </tr>
+
+            <tr>
+                <td>疏散距离: 会议室最远点 → E2<div class="detail">路径类型: 袋形走道；限值22m × 1.25(自动喷淋) = 27.5m</div></td>
+                <td class="pass">18 m</td>
+                <td>27.5 m</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 50016 表5.5.17</td>
+            </tr>
+
+            <tr>
+                <td>安全出口数量<div class="detail">实际2个出口；规范要求≥2个</div></td>
+                <td class="pass">2 个</td>
+                <td>2 个</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 50016 5.5.15</td>
+            </tr>
+
+            <tr>
+                <td>安全出口间距<div class="detail">需确认：相邻出口最近边缘间距≥5m（请从平面图测量）</div></td>
+                <td class="pass">0 m</td>
+                <td>5 m</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 55037 7.1.2</td>
+            </tr>
+
+            <tr>
+                <td>出口E1宽度<div class="detail">实际1.2m；最小要求0.9m</div></td>
+                <td class="pass">1.2 m</td>
+                <td>0.9 m</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 50016 5.5.18</td>
+            </tr>
+
+            <tr>
+                <td>出口E2宽度<div class="detail">实际1.5m；最小要求0.9m</div></td>
+                <td class="pass">1.5 m</td>
+                <td>0.9 m</td>
+                <td><span class="badge-pass">合规</span></td>
+                <td class="code-ref">GB 50016 5.5.18</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div class="summary-box summary-all-pass">
+        <strong>所有校验项均合规</strong>
+        <p>本次消防疏散分析各项指标均满足规范要求。</p>
+    </div>
+
+    <h2>规范依据</h2>
+    <table>
+        <tr><th>规范</th><th>条文</th><th>用途</th></tr>
+        <tr><td>GB 55037-2022 建筑防火通用规范</td><td>第7章 安全疏散</td><td>强制性原则要求</td></tr>
+        <tr><td>GB 50016-2014(2018版) 建筑设计防火规范</td><td>第5.5章 安全疏散</td><td>量化计算参数</td></tr>
+        <tr><td>GB 50222-2017 建筑内部装修设计防火规范</td><td>—</td><td>装修材料防火</td></tr>
+    </table>
+
+    <div class="footer">
+        <p>本报告由消防疏散分析系统自动生成，仅供参考。正式设计应以规范原文为准，建议由注册消防工程师审核。</p>
+        <p>生成时间: 2026-08-07 19:50:39</p>
+    </div>
+</div>
+</body>
+</html>

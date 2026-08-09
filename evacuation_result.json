@@ -1,0 +1,104 @@
+{
+  "building": {
+    "type": "办公建筑",
+    "area_m2": 274.6,
+    "floor": "4层及以上",
+    "fire_resistance": "一、二级",
+    "sprinkler": true
+  },
+  "calculations": {
+    "occupants": 55,
+    "density_per_m2": 0.2,
+    "width_per_100": 1.0,
+    "required_width_m": 0.55,
+    "between_exits_limit_m": 50.0,
+    "dead_end_limit_m": 27.5,
+    "worst_travel_m": 2.6,
+    "exit_count": 2,
+    "exit_spacing_m": 15.3
+  },
+  "checks": [
+    {
+      "name": "安全出口数量",
+      "result": "PASS",
+      "detail": "2个 ≥ 2个 (GB 50016 5.5.8)"
+    },
+    {
+      "name": "疏散总宽度",
+      "result": "PASS",
+      "detail": "需要0.55m, 2个出口各≥0.90m满足 (GB 50016 5.5.18)"
+    },
+    {
+      "name": "疏散距离(两出口间)",
+      "result": "PASS",
+      "detail": "限值50.0m, 最远约2.6m (GB 50016 5.5.17)"
+    },
+    {
+      "name": "安全出口间距",
+      "result": "PASS",
+      "detail": "间距约15.3m ≥ 5m (GB 55037 7.1.2)"
+    },
+    {
+      "name": "走道宽度",
+      "result": "PASS",
+      "detail": "走道≥1.10m (高层公共建筑), GB 50016 5.5.18"
+    },
+    {
+      "name": "疏散门开启方向",
+      "result": "NOTE",
+      "detail": "疏散门应向疏散方向开启 (GB 55037 7.1.5)"
+    }
+  ],
+  "exits": [
+    {
+      "id": "A",
+      "x": 3540,
+      "y": 16650,
+      "label": "安全出口A(疏散楼梯)",
+      "width_m": 1.2
+    },
+    {
+      "id": "B",
+      "x": 18800,
+      "y": 14845,
+      "label": "安全出口B(疏散楼梯)",
+      "width_m": 1.2
+    }
+  ],
+  "fire_equipment": {
+    "extinguishers": [
+      {
+        "x": 6100,
+        "y": 9240
+      },
+      {
+        "x": 17000,
+        "y": 15500
+      },
+      {
+        "x": 4325,
+        "y": 15500
+      }
+    ],
+    "hydrants": [
+      {
+        "x": 8500,
+        "y": 6000
+      },
+      {
+        "x": 16000,
+        "y": 15500
+      }
+    ],
+    "alarm_buttons": [
+      {
+        "x": 8000,
+        "y": 6500
+      },
+      {
+        "x": 15000,
+        "y": 14500
+      }
+    ]
+  }
+}
