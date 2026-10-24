@@ -16,5 +16,7 @@
   ],
   "description_zh": "文档转 Markdown(PDF/Word/PPT/图片OCR/音频转写/网页)",
   "description_en": "Convert documents to Markdown (PDF, Word, PPT, images, audio, URLs)",
-  "iconSource": "letter:auto"
+  "iconSource": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/3c523ba3-af65-432d-9631-bf6ea9479fd2/6eeb4ecc-691d-424a-9ece-1ef3a4a6e4f3.png",
+  "iconLocalPath": "C:\\Users\\Administrator\\.workbuddy\\skills\\markitdown-skill\\_icon.png",
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/common/capability_cover/3c523ba3-af65-432d-9631-bf6ea9479fd2/6eeb4ecc-691d-424a-9ece-1ef3a4a6e4f3.png"
 }

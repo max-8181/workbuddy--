@@ -30,8 +30,12 @@ case "$1" in
       echo "→ 同步 skills/ ..."
       rm -rf "$CONFIGS_DIR/skills"
       cp -r "$WB_HOME/skills" "$CONFIGS_DIR/skills"
-      echo "  完成: $(find "$CONFIGS_DIR/skills" -type f | wc -l) 个文件"
+      # 剔除本地回滚备份目录（形如 .xxx.bak-20261024-162700），不进仓库
+      find "$CONFIGS_DIR/skills" -maxdepth 1 -type d -name '.*.bak-*' -exec rm -rf {} + 2>/dev/null
+      echo "  完成: $(find "$CONFIGS_DIR/skills" -type f | wc -l) 个文件（已剔除本地备份目录）"
     fi
+
+    # 项目续接笔记放 workbuddy-configs/notes/，在 workbuddy-configs 下会自动纳入提交
 
     # 同步配置文件
     for f in $CONFIG_FILES; do
@@ -46,10 +50,11 @@ case "$1" in
     echo ""
 
     # 自动提交
+    # 注：本机 git 常遇 schannel: CRYPT_E_REVOCATION_OFFLINE，故统一关掉吊销检查
     cd "$REPO_DIR"
-    git add workbuddy-configs/
-    git commit -m "sync: update workbuddy configs $(date '+%Y-%m-%d %H:%M')" || echo "(无变更需要提交)"
-    git push || echo "⚠️  push 失败，请检查网络或仓库权限后手动 git push"
+    git -c http.schannelCheckRevoke=false add workbuddy-configs/
+    git -c http.schannelCheckRevoke=false commit -m "sync: update workbuddy configs $(date '+%Y-%m-%d %H:%M')" || echo "(无变更需要提交)"
+    git -c http.schannelCheckRevoke=false push || echo "⚠️  push 失败，请检查网络或仓库权限后手动 git push"
     ;;
 
   pull)
@@ -59,10 +64,13 @@ case "$1" in
     # 确保目标目录存在
     mkdir -p "$WB_HOME"
 
-    # 恢复 skills 目录
+    # 恢复 skills 目录（覆盖前先把本机的备份一份，避免丢自有的技能）
     if [ -d "$CONFIGS_DIR/skills" ]; then
+      if [ -d "$WB_HOME/skills" ]; then
+        mv "$WB_HOME/skills" "$WB_HOME/.skills.local-$(date '+%Y%m%d-%H%M%S')"
+        echo "→ 本机原有 skills 已备份为 ~/.workbuddy/.skills.local-*"
+      fi
       echo "→ 恢复 skills/ ..."
-      rm -rf "$WB_HOME/skills"
       cp -r "$CONFIGS_DIR/skills" "$WB_HOME/skills"
       echo "  完成: $(find "$WB_HOME/skills" -type f | wc -l) 个文件"
     fi

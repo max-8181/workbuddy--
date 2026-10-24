@@ -26,3 +26,8 @@ desktop.ini
 .workbuddy/workspace-state.json
 .workbuddy/usage-log.json
 .workbuddy/last-launch.json
+
+# === 技能本地备份目录（回滚用，不同步到仓库）===
+# 形如 .book-to-skill.bak-20261024-162700 / .nison-candlesticks.bak-...
+workbuddy-configs/skills/.*.bak-*/
+skills/.*.bak-*/
