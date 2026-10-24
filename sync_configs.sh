@@ -8,6 +8,11 @@
 
 set -e
 
+# PortableGit 的系统级 credential.helper=helper-selector 会让 git push 永久挂起，全程禁用
+export GIT_CONFIG_NOSYSTEM=1
+# github.com 本机直连不通，默认走本机代理；可用 WB_SYNC_PROXY 环境变量覆盖
+SYNC_PROXY="${WB_SYNC_PROXY:-http://localhost:15236}"
+
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONFIGS_DIR="$REPO_DIR/workbuddy-configs"
 WB_HOME="$HOME/.workbuddy"
@@ -26,13 +31,13 @@ case "$1" in
     echo ""
 
     # 同步 skills 目录
+    # 注：用合并复制（cp -r 到已存在目录），不用 rm -rf —— 避免误删与权限拦截。
+    # 本地回滚备份目录（形如 .xxx.bak-*）会一并复制进来，但 .gitignore 已排除，不会提交。
     if [ -d "$WB_HOME/skills" ]; then
       echo "→ 同步 skills/ ..."
-      rm -rf "$CONFIGS_DIR/skills"
-      cp -r "$WB_HOME/skills" "$CONFIGS_DIR/skills"
-      # 剔除本地回滚备份目录（形如 .xxx.bak-20261024-162700），不进仓库
-      find "$CONFIGS_DIR/skills" -maxdepth 1 -type d -name '.*.bak-*' -exec rm -rf {} + 2>/dev/null
-      echo "  完成: $(find "$CONFIGS_DIR/skills" -type f | wc -l) 个文件（已剔除本地备份目录）"
+      mkdir -p "$CONFIGS_DIR/skills"
+      cp -r "$WB_HOME/skills/." "$CONFIGS_DIR/skills/"
+      echo "  完成: $(find "$CONFIGS_DIR/skills" -type f | wc -l) 个文件（备份目录已由 .gitignore 排除）"
     fi
 
     # 项目续接笔记放 workbuddy-configs/notes/，在 workbuddy-configs 下会自动纳入提交
@@ -49,12 +54,17 @@ case "$1" in
     echo "✅ 推送完成！现在可以 git commit && git push"
     echo ""
 
-    # 自动提交
-    # 注：本机 git 常遇 schannel: CRYPT_E_REVOCATION_OFFLINE，故统一关掉吊销检查
+    # 自动提交 + 推送
+    # 本机（2026-10 实测）三个必踩的坑，已全部内置处理：
+    #   1) github.com 直连不通（curl 20s 超时），必须走本机代理；代理端口可用 WB_SYNC_PROXY 覆盖
+    #   2) PortableGit 的系统级 credential.helper=helper-selector 会让 push 永久挂起 → GIT_CONFIG_NOSYSTEM=1
+    #   3) schannel: CRYPT_E_REVOCATION_OFFLINE → http.schannelCheckRevoke=false
     cd "$REPO_DIR"
-    git -c http.schannelCheckRevoke=false add workbuddy-configs/
-    git -c http.schannelCheckRevoke=false commit -m "sync: update workbuddy configs $(date '+%Y-%m-%d %H:%M')" || echo "(无变更需要提交)"
-    git -c http.schannelCheckRevoke=false push || echo "⚠️  push 失败，请检查网络或仓库权限后手动 git push"
+    GITCMD="git -c http.proxy=$SYNC_PROXY -c https.proxy=$SYNC_PROXY -c http.schannelCheckRevoke=false"
+    echo "→ 代理: $SYNC_PROXY"
+    $GITCMD add workbuddy-configs/
+    $GITCMD commit -m "sync: update workbuddy configs $(date '+%Y-%m-%d %H:%M')" || echo "(无变更需要提交)"
+    $GITCMD push || echo "⚠️  push 失败：若代理不通，改用 WB_SYNC_PROXY=http://<host>:<port> ./sync_configs.sh push"
     ;;
 
   pull)

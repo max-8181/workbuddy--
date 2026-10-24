@@ -7,6 +7,7 @@
 ```
 ├── workbuddy-configs/        # WorkBuddy 全局配置（~/.workbuddy/ 的镜像）
 │   ├── skills/               # 已安装的技能包
+│   ├── notes/                # 跨设备续接笔记（做了什么/结论/待办）
 │   ├── SOUL.md               # AI 性格定义
 │   ├── IDENTITY.md           # AI 身份信息
 │   ├── USER.md               # 用户信息
@@ -81,6 +82,25 @@ pip install pymupdf ezdxf numpy pywin32 cos-python-sdk-v5
 git pull
 ./sync_configs.sh pull
 ```
+
+### 推送失败排查（2026-10 实测）
+
+脚本已内置处理，若仍失败按此排查：
+
+| 症状 | 原因 | 处理 |
+|---|---|---|
+| push 卡住不动、无报错 | PortableGit 系统级 `credential.helper=helper-selector` 挂起 | 脚本已设 `GIT_CONFIG_NOSYSTEM=1` |
+| 连接超时 | **github.com 直连不通**（curl 20s 超时返回 000），必须走代理 | 脚本默认 `http://localhost:15236`；换端口用 `WB_SYNC_PROXY=http://host:port ./sync_configs.sh push` |
+| `CRYPT_E_REVOCATION_OFFLINE` | schannel 吊销检查离线 | 脚本已设 `http.schannelCheckRevoke=false` |
+| 凭据管理器报 "No such file or directory" | `~/.gitconfig` 里 helper 指向失效的 PortableGit 路径 | 改指向 `C:/Program Files/Git/mingw64/bin/git-credential-manager.exe` |
+
+> 注：`api.github.com` 直连可达但 `github.com` 不可达，两者不同，别用前者判断网络。
+
+## 跨设备续接笔记
+
+`workbuddy-configs/notes/` 存放**项目上下文**，用于在其他客户端接着干同一个活儿，而不是重新解释一遍。
+会话结束前把"下次开机还想拿到的东西"写进去（做了什么 → 结论 → 待办 → 其他客户端怎么继续）。
+详见 `workbuddy-configs/notes/README.md`。
 
 ## 云端自动同步（无需手动操作）
 
